@@ -7,6 +7,14 @@ function addTask() {
     alert('Please enter a task!');
     return;
   }
+  
+  const existingTasks = document.querySelectorAll('#taskList span');
+  for (let task of existingTasks) {
+    if (task.textContent.toLowerCase() === taskText.toLowerCase()) {
+      alert('Task already exists!');
+      return;
+    }
+  }
 
   const listItem = document.createElement('li');
   listItem.className = 'flex items-center justify-between bg-white p-3 rounded shadow';
